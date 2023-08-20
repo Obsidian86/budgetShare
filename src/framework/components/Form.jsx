@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { styled } from "styled-components";
 import Button from "./Button";
-import Card from "./Card";
 
 const getInitialFormState = (fields) =>
   fields.reduce(
@@ -39,12 +38,12 @@ export default ({ fields, label, onSubmit, render }) => {
               onChange: (e) => handleFieldChange(e, field)
             };
             return (
-              <span className="field-set">
+              <span className="field-set" key={field.name}>
                 {label && <span className="field-label">{label(field)}</span>}
                 {field.type === "select" ? (
-                  <select {...fieldProps}>
+                  <select {...fieldProps} value={formState[field.name] ?? ""}>
                     {field.options?.map?.((option) => (
-                      <option selected={formState[field.name] === option}>
+                      <option value={option || ''} key={option || ''}>
                         {option}
                       </option>
                     ))}

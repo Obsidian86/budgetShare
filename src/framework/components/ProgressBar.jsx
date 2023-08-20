@@ -21,13 +21,13 @@ const ProgressBar = ({
 
   return (
     <StyledProgressBar
-      borderRadius={borderRadius}
-      value={value}
-      mounted={isMounted}
-      primaryColor={barColor}
-      secondaryColor={secondaryColor}
-      fontColor={fontColor}
-      padding={padding}
+      $borderRadius={borderRadius}
+      $value={value}
+      $mounted={isMounted}
+      $primaryColor={barColor}
+      $secondaryColor={secondaryColor}
+      $fontColor={fontColor}
+      $padding={padding}
     >
       {markers?.map?.(({ color, value }) => (
         <div
@@ -45,8 +45,8 @@ const ProgressBar = ({
 export default ProgressBar;
 
 const StyledProgressBar = styled.div`
-  border-radius: ${(p) => p.borderRadius}px;
-  background-color: ${(p) => p.secondaryColor};
+  border-radius: ${(p) => p.$borderRadius}px;
+  background-color: ${(p) => p.$secondaryColor};
   position: relative;
   overflow: hidden;
   .progress-meter {
@@ -57,21 +57,21 @@ const StyledProgressBar = styled.div`
     height: 100%;
     transition: width 0.3s ease-in-out 0.1s;
     width: ${({ value, mounted }) => (mounted ? value : 0)}%;
-    background-color: ${(p) => p.primaryColor};
+    background-color: ${(p) => p.$primaryColor};
     border-top: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: ${({ borderRadius }) =>
-      `${borderRadius} 0 0 ${borderRadius} `};
+    border-radius: ${(p) =>
+      `${p.$borderRadius} 0 0 ${p.$borderRadius} `};
     z-index: 1;
   }
   .progress-value {
     width: 100%;
     height: 100%;
     display: block;
-    padding: ${(p) => `${p.padding}px 0 ${p.padding}px 0`};
+    padding: ${(p) => `${p.$padding}px 0 ${p.$padding}px 0`};
     z-index: 2;
     position: relative;
     text-align: center;
-    color: ${({ fontColor }) => fontColor};
+    color: ${(p) => p.$fontColor};
     font-weight: 600;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
     font-family: "open sans", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;

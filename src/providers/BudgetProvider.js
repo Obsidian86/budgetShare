@@ -1,5 +1,5 @@
 import { createContext, useEffect, useMemo, useState } from "react";
-import makeCall from "../DAL/makeCall";
+import makeCall from "../framework/DAL/makeCall";
 
 const defaultBudgetState = { data: [] };
 export const BudgetContext = createContext(defaultBudgetState);
@@ -16,8 +16,8 @@ export default ({ children }) => {
       ...currentState,
       data: [
         ...currentState.data,
-        { ...newItem, id: currentState.data.length + 1 }
-      ]
+        { ...newItem, id: currentState.data.length + 1 },
+      ],
     }));
   };
 
@@ -28,7 +28,7 @@ export default ({ children }) => {
   const value = useMemo(() => {
     return {
       state: budgetState,
-      actions: { addBudgetItem }
+      actions: { addBudgetItem },
     };
   }, [budgetState]);
 

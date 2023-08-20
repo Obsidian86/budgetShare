@@ -1,21 +1,19 @@
 import { useContext } from "react";
 import { styled } from "styled-components";
-import { StylesContext } from "../providers/StylesProvider";
+import { StylesContext } from "../framework/providers/StylesProvider";
+import Field from "../framework/components/Field";
 
 const Header = () => {
   const StylesState = useContext(StylesContext);
   console.log({ StylesState });
   return (
-    <StyledHeader
-      colors={StylesState.data.COLORS}
-      // style={{
-      //   width: "100%",
-      //   backgroundColor: StylesState.data.COLORS.primary,
-      //   padding: "20px 0",
-      //   marginBottom: "20px"
-      // }}
-    >
-      <div className="content">Header</div>
+    <StyledHeader $colors={StylesState.data.COLORS} className="row">
+      <div className="content">MainTitle</div>
+      <div className="row">
+        Income{" "}
+        <Field background={StylesState.data.COLORS.primaryDark} />
+      </div>
+      <div className="p2">Profile</div>
     </StyledHeader>
   );
 };
@@ -24,5 +22,5 @@ export default Header;
 
 const StyledHeader = styled.div`
   width: 100%;
-  background-color: ${(p) => p.colors.primary};
+  background-color: ${(p) => p.$colors.primary};
 `;

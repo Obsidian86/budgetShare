@@ -1,6 +1,6 @@
-import Card from "../../components/Card";
-import ProgressBar from "../../components/ProgressBar";
-import { display } from "../../utils/money";
+import Card from "../../framework/components/Card";
+import ProgressBar from "../../framework/components/ProgressBar";
+import { display } from "../../framework/utils/money";
 import { GROUP_MARKERS, TOTAL_MARKERS } from "./constants";
 
 const Console = ({ total, totalUsed, budgets }) => {
@@ -9,7 +9,7 @@ const Console = ({ total, totalUsed, budgets }) => {
     const budgetGroup = budgets[category];
     totalItems += budgetGroup.items.length;
     return (
-      <div>
+      <div key={budgetGroup.name + '-' + category}>
         <span className="row between p1">
           <span className="b">{budgetGroup.name}</span>
           <span> {budgetGroup.items.length}</span>
@@ -26,6 +26,7 @@ const Console = ({ total, totalUsed, budgets }) => {
         >
           {budgetGroup.items.map((budgetItem) => (
             <span
+              key={budgetGroup.name + '-' + category + '-' + budgetItem.name}
               style={{
                 marginRight: ".5rem",
                 padding: ".3rem .55rem",

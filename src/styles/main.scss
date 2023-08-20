@@ -1,0 +1,58 @@
+@import './constants.scss';
+
+body {
+  font-size: 16px;
+  font-family: $FONT-STACK-1; 
+}
+
+.App {
+  background-color: rgb(150, 150, 150);
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+}
+
+// Utitlity //
+
+// layout
+.content {
+  width: 96%;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  &.v-center {
+    align-items: center;
+  }
+  &.between {
+    justify-content: space-between;
+  }
+  &.around {
+    justify-content: space-evenly;
+  }
+  &.end {
+    justify-content: flex-end;
+  }
+}
+
+@for $i from 1 through 100 {
+  .w#{$i} {
+    width: #{$i}#{"%"};
+  }
+  .p#{$i} {
+    padding: #{$i / 2}rem;
+  }
+  .mxa {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .m#{$i} {
+    margin: #{$i / 2}rem;
+  }
+}
+
+// text
+.b {
+  font-weight: bold;
+}

@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 export default function App() {
   return (
     <StylesProvoder>
-      <div className="App">
+      <div className="App bgMedium">
         <Header />
         <BudgetProvider>
           <div className="content">

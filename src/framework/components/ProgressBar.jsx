@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import useMounted from "../hooks/useMounted";
+import * as percent from "../utils/percent";
 
 const ProgressBar = ({
   value = 0,
@@ -8,7 +9,7 @@ const ProgressBar = ({
   primaryColor = "green",
   secondaryColor = "#444",
   fontColor = "rgba(255, 255, 255, 0.9)",
-  markers = []
+  markers = [],
 }) => {
   const isMounted = useMounted();
 
@@ -37,7 +38,7 @@ const ProgressBar = ({
         />
       ))}
       <div className="progress-meter" />
-      <span className="progress-value">{value}%</span>
+      <span className="progress-value">{percent.display(value)}</span>
     </StyledProgressBar>
   );
 };
@@ -56,11 +57,9 @@ const StyledProgressBar = styled.div`
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
     height: 100%;
     transition: width 0.3s ease-in-out 0.1s;
-    width: ${({ value, mounted }) => (mounted ? value : 0)}%;
+    width: ${(p) => (p.$mounted ? p.$value : 0)}%;
     background-color: ${(p) => p.$primaryColor};
-    border-top: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: ${(p) =>
-      `${p.$borderRadius} 0 0 ${p.$borderRadius} `};
+    border-radius: ${(p) => `${p.$borderRadius} 0 0 ${p.$borderRadius} `};
     z-index: 1;
   }
   .progress-value {
@@ -74,7 +73,6 @@ const StyledProgressBar = styled.div`
     color: ${(p) => p.$fontColor};
     font-weight: 600;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-    font-family: "open sans", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   }
   .progress-marker {
     position: absolute;

@@ -4,7 +4,7 @@ const Card = ({
   children,
   className,
   background = "#fff",
-  borderRadius = "4px",
+  borderRadius = "6px",
 }) => {
   return (
     <StyledCard

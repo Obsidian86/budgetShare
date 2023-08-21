@@ -5,8 +5,9 @@ const data = {
     { id: 3, name: "car", amount: 400, category: "Transportation" },
     { id: 4, name: "gas", amount: 83.23, category: "Transportation" },
     { id: 5, name: "repair", amount: 13.14, category: "Transportation" },
-    { id: 6, name: "music", amount: 23.13, category: "Entertainment" }
-  ]
+    { id: 6, name: "music", amount: 23.13, category: "Entertainment" },
+    { id: 7, name: "music", amount: 23.13, category: "Other" },
+  ],
 };
 
 const test = () => {

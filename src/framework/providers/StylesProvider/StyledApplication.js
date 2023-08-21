@@ -46,8 +46,12 @@ const StyledApplication = styled.div`
     &.wrap {
       flex-wrap: wrap;
     }
-    &.v-center {
+    &.vcenter {
       align-items: center;
+    }
+    &.vtop {
+      align-items: top;
+      border: 1px solid red;
     }
     &.between {
       justify-content: space-between;
@@ -68,6 +72,14 @@ const StyledApplication = styled.div`
   }
   .tc {
     text-align: center;
+  }
+  .tr {
+    text-align: right;
+  }
+
+  // colors ------------ //
+  .bgMedium {
+    background-color: ${(p) => p.styles.COLORS.mediumGray};
   }
 `;
 

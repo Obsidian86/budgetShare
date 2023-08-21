@@ -5,10 +5,11 @@ import { COLORS, FONT_STACK } from "./constants";
 
 const initialState = {
   COLORS: {
-    background: COLORS.medGray,
+    background: COLORS.teal,
     primary: COLORS.teal,
     primaryDark: COLORS.tealDark,
     primaryLight: COLORS.tealLight,
+    mediumGray: COLORS.medGray,
   },
   FONT: {
     default: FONT_STACK.default,

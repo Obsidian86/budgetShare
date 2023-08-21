@@ -38,9 +38,9 @@ export default () => {
   };
 
   return (
-    <div className="row around wrap">
+    <div className="row around wrap pt4">
       <p className="w30">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
-      <Card className="w70 row v-center between">
+      <Card className="w70 row vcenter between">
         <p className='w70'>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium</p>
         <span className='w30'>
           <Button label='Delete' type='danger' />
@@ -48,26 +48,30 @@ export default () => {
         </span>
       </Card>
       <div className="w30">
-        <Form
-          label={(field) => <label>{field.name}</label>}
-          fields={[
-            { name: "Name" },
-            { name: "Category", type: "select", options: Object.keys(budgets) },
-            { name: "Amount", type: "number", default: 0 }
-          ]}
-          onSubmit={onSubmit}
-          render={(renderForm, formState) => (
-            <>
-              {formState.Amount > 0 && (
-                <span>
-                  {total - totalUsed} -&gt;
-                  {display(total - totalUsed - parseInt(formState.Amount))}{" "}
-                </span>
-              )}
-              {renderForm}
-            </>
-          )}
-        />
+        <Card>
+          <div>+ Add New Item</div>
+          <div  style={{ background: '#343434' }}>$1,429.12 - $429.12     1000 </div> 
+          <Form
+            label={(field) => <label>{field.name}</label>}
+            fields={[
+              { name: "Name" },
+              { name: "Category", type: "select", options: Object.keys(budgets) },
+              { name: "Amount", type: "number", default: 0 }
+            ]}
+            onSubmit={onSubmit}
+            render={(renderForm, formState) => (
+              <>
+                {formState.Amount > 0 && (
+                  <span>
+                    {total - totalUsed} -&gt;
+                    {display(total - totalUsed - parseInt(formState.Amount))}{" "}
+                  </span>
+                )}
+                {renderForm}
+              </>
+            )}
+          />
+        </Card>
       </div>
       <div className="w70">
         <Console total={total} totalUsed={totalUsed} budgets={budgets} />

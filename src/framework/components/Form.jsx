@@ -60,7 +60,7 @@ export default ({ fields, label, onSubmit, render }) => {
             );
           })}
           <div className="row end p1">
-            <Button onClick={handleClearClick} label="Clear" />
+            <Button onClick={handleClearClick} label="Clear" type="danger" />
             <Button onClick={handleSubmit} label="Submit" />
           </div>
         </StyledForm>,
@@ -72,21 +72,28 @@ export default ({ fields, label, onSubmit, render }) => {
 
 const StyledForm = styled.div`
   .field-set {
-    width: 100%;
+    width: 86%;
     display: flex;
-    margin-top: 10px;
+    margin: 1.65rem auto;
     align-items: center;
-    background-color: #fff;
-    border-radius: 3px;
+    background-color: #D8E4E4;
+    border-radius: 6px;
     .field-label {
-      padding: 12px 6px 12px 12px;
+      padding: 0 6px 0 12px;
+      color: #A3B7B6;
+      font-size: .8rem;
     }
     input,
     select {
       border: none;
-      padding: 10px 10px;
+      padding: 16px 10px;
       height: 100%;
       margin-left: 10px;
+      background: transparent;
+      width: calc(100% - 20px);
+    }
+    select {
+      width: calc(96% - 75px);
     }
   }
 `;

@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 import useMounted from "../hooks/useMounted";
-import * as percent from "../utils/percent";
+import { displayPercent } from "../utils/numbers";
 
 const ProgressBar = ({
   value = 0,
@@ -38,7 +38,7 @@ const ProgressBar = ({
         />
       ))}
       <div className="progress-meter" />
-      <span className="progress-value">{percent.display(value)}</span>
+      <span className="progress-value">{displayPercent(value)}</span>
     </StyledProgressBar>
   );
 };

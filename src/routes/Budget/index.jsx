@@ -47,7 +47,7 @@ export default () => {
           <Button label='Save' />
         </span>
       </Card>
-      <div className="w30">
+      <div className="w30 mt5">
         <Card>
           <div>+ Add New Item</div>
           <div  style={{ background: '#343434' }}>$1,429.12 - $429.12     1000 </div> 
@@ -73,7 +73,7 @@ export default () => {
           />
         </Card>
       </div>
-      <div className="w70">
+      <div className="w70 mt5">
         <Console total={total} totalUsed={totalUsed} budgets={budgets} />
       </div>
     </div>

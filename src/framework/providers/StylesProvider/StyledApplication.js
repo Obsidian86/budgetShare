@@ -85,7 +85,12 @@ const StyledApplication = styled.div`
   .tError {
     color: ${(p) => p.styles.THEME.error};
   }
-
+  .tPrimary {
+    color: ${(p) => p.styles.THEME.primary};
+  }
+  .tWhite {
+    color: #fff;
+  }
   // colors ------------ //
   .bgMedium {
     background-color: ${(p) => p.styles.THEME.mediumGray};

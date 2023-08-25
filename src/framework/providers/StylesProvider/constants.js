@@ -9,11 +9,14 @@ export const COLORS = {
   tealDark: "#11605B",
   tealLight: "#BCE9E6",
   medGray: "#D9D9D9",
+  lightGray: "#E9E9E9",
   medGray2: "#B9B9B9",
   darkGray: "#343434",
-  greenLight: "#D0F2CB",
   green: "#179B54",
+  greenLight: "#C0D9C7",
   red: "#C14949",
+  babyBlue: "#54ACD1",
+  skyBlue: "#B2E0EE",
 };
 
 export const BREAKPOINTS = {

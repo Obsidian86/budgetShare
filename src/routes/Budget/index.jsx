@@ -1,6 +1,7 @@
-import { useContext } from "react";
-import Form from "../../framework/components/Form";
+import { useContext, useState } from "react";
 import { BudgetContext } from "../../providers/BudgetProvider";
+import { StylesContext } from "../../framework/providers/StylesProvider";
+import Form from "../../framework/components/Form";
 import { display } from "../../framework/utils/money";
 import Console from "./Console";
 import Card from "../../framework/components/Card";
@@ -9,6 +10,9 @@ import Badge from "../../framework/components/Badge";
 
 export default () => {
   const budgetContext = useContext(BudgetContext);
+  const stylesState = useContext(StylesContext);
+
+  const colors = stylesState.data.COLORS;
 
   const total = 8000;
   let totalUsed = 0;
@@ -39,13 +43,13 @@ export default () => {
   };
 
   return (
-    <div className="row around wrap pt4">
-      <p className="w30 breakMedium">
+    <div className="row around wrap pt4 pb6">
+      <p className="w30 tPrimary b breakMedium">
         Sed ut perspiciatis unde omnis iste natus error sit voluptatem
         accusantium doloremque laudantium
       </p>
-      <Card className="w70 row vcenter between breakMedium">
-        <p className="w70">
+      <Card className="w65 row vcenter between breakMedium">
+        <p className="w70 tPrimary p2">
           Sed ut perspiciatis unde omnis iste natus error sit voluptatem
           accusantium doloremque laudantium
         </p>
@@ -56,9 +60,9 @@ export default () => {
       </Card>
       <div className="w30 mt5 breakMedium">
         <Card>
-          <div>+ Add New Item</div>
-          <div style={{ background: "#343434" }}>
-            $1,429.12 - $429.12 <Badge text="$1,000" />
+          <div className="bgSuccess row between p2 b">
+            <span>+</span>
+            <span>Add New Item</span>
           </div>
           <Form
             label={(field) => <label>{field.name}</label>}
@@ -72,23 +76,34 @@ export default () => {
               { name: "Amount", type: "number", default: 0 },
             ]}
             onSubmit={onSubmit}
-            render={(renderForm, formState) => (
-              <>
-                {formState.Amount > 0 && (
-                  <span>
-                    {total - totalUsed} -&gt;
-                    {display(
-                      total - totalUsed - parseInt(formState.Amount)
-                    )}{" "}
-                  </span>
-                )}
-                {renderForm}
-              </>
-            )}
+            render={(renderForm, formState) => {
+              const remaining = total - (formState.Amount || 0);
+              return (
+                <>
+                  <div
+                    style={{ background: colors.darkGray }}
+                    className="tWhite b tr"
+                  >
+                    <div className="p2">
+                      <span className="pr1">
+                        {display(total)} - {display(formState.Amount || 0)}
+                      </span>
+                      <Badge
+                        text={display(remaining)}
+                        background={
+                          remaining < 0 ? colors.red : colors.babyBlue
+                        }
+                      />
+                    </div>
+                  </div>
+                  {renderForm}
+                </>
+              );
+            }}
           />
         </Card>
       </div>
-      <div className="w70 mt5 breakMedium">
+      <div className="w65 mt5 breakMedium">
         <Console total={total} totalUsed={totalUsed} budgets={budgets} />
       </div>
     </div>

@@ -18,7 +18,9 @@ const Console = ({ total, totalUsed, budgets }) => {
       <div
         key={budgetGroup.name + "-" + category}
         className="p2"
-        style={{ background: index % 2 === 0 ? "#fff" : "#E9E9E9" }}
+        style={{
+          background: index % 2 === 0 ? colors.white : colors.lightGray,
+        }}
       >
         <span className="row between p1">
           <span className="b">{budgetGroup.name}</span>
@@ -26,8 +28,8 @@ const Console = ({ total, totalUsed, budgets }) => {
         </span>
         <ProgressBar
           value={(budgetGroup.amount / total) * 100}
-          secondaryColor="#C0D9C7"
-          primaryColor="#179B54"
+          secondaryColor={colors.greenLight}
+          primaryColor={colors.green}
         />
         {budgetGroup.items.map((budgetItem) => (
           <div
@@ -38,8 +40,8 @@ const Console = ({ total, totalUsed, budgets }) => {
             <div className="w70">
               <ProgressBar
                 value={(budgetItem.amount / budgetGroup.amount) * 100}
-                secondaryColor="#B2E0EE"
-                primaryColor="#54ACD1"
+                secondaryColor={colors.skyBlue}
+                primaryColor={colors.babyBlue}
               />
             </div>
           </div>
@@ -49,14 +51,14 @@ const Console = ({ total, totalUsed, budgets }) => {
   });
 
   return (
-    <div >
+    <div>
       <div className="row between mxa bgContent">
         <Badge
-          text={'$'}
+          text={"$"}
           color={colors.greenLight}
           background={colors.green}
           borderRadius="0"
-          padding='1rem 1.42rem'
+          padding="1rem 1.42rem"
         />
         <div className="p1">
           <span className="pr1 b">

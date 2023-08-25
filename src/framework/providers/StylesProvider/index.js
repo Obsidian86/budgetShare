@@ -1,7 +1,7 @@
 import { createContext, useMemo, useState } from "react";
 import StyledApplication from "./StyledApplication";
 import "normalize.css";
-import { COLORS, FONT_STACK } from "./constants";
+import { BREAKPOINTS, COLORS, FONT_STACK } from "./constants";
 
 const initialState = {
   COLORS,
@@ -17,6 +17,11 @@ const initialState = {
   },
   FONT: {
     default: FONT_STACK.default,
+  },
+  LAYOUT: {
+    break: {
+      medium: BREAKPOINTS.MEDIUM,
+    },
   },
 };
 

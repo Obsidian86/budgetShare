@@ -66,6 +66,12 @@ const StyledApplication = styled.div`
 
   ${getLayoutClasses()}
 
+  @media screen and (max-width: ${(p) => p.styles.LAYOUT.break.medium}) {
+    .breakMedium {
+      width: 98% !important;
+    }
+  }
+
   // text ------------ //
   .b {
     font-weight: bold;

@@ -15,3 +15,7 @@ export const COLORS = {
   green: "#179B54",
   red: "#C14949",
 };
+
+export const BREAKPOINTS = {
+  MEDIUM: "900px",
+};

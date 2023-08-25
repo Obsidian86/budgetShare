@@ -49,7 +49,7 @@ const Console = ({ total, totalUsed, budgets }) => {
   });
 
   return (
-    <div className="p2">
+    <div >
       <div className="row between mxa bgContent">
         <Badge
           text={'$'}

@@ -40,11 +40,11 @@ export default () => {
 
   return (
     <div className="row around wrap pt4">
-      <p className="w30">
+      <p className="w30 breakMedium">
         Sed ut perspiciatis unde omnis iste natus error sit voluptatem
         accusantium doloremque laudantium
       </p>
-      <Card className="w70 row vcenter between">
+      <Card className="w70 row vcenter between breakMedium">
         <p className="w70">
           Sed ut perspiciatis unde omnis iste natus error sit voluptatem
           accusantium doloremque laudantium
@@ -54,7 +54,7 @@ export default () => {
           <Button label="Save" />
         </span>
       </Card>
-      <div className="w30 mt5">
+      <div className="w30 mt5 breakMedium">
         <Card>
           <div>+ Add New Item</div>
           <div style={{ background: "#343434" }}>
@@ -88,7 +88,7 @@ export default () => {
           />
         </Card>
       </div>
-      <div className="w70 mt5">
+      <div className="w70 mt5 breakMedium">
         <Console total={total} totalUsed={totalUsed} budgets={budgets} />
       </div>
     </div>

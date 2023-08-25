@@ -26,7 +26,7 @@ const getLayoutClasses = () => {
 const StyledApplication = styled.div`
   font-size: 16px;
   font-family: ${(p) => p.styles.FONT.default};
-  background-color: ${(p) => p.styles.COLORS.background};
+  background-color: ${(p) => p.styles.THEME.background};
   min-height: 100vh;
   width: 100%;
   margin: 0;
@@ -76,10 +76,19 @@ const StyledApplication = styled.div`
   .tr {
     text-align: right;
   }
+  .tError {
+    color: ${(p) => p.styles.THEME.error};
+  }
 
   // colors ------------ //
   .bgMedium {
-    background-color: ${(p) => p.styles.COLORS.mediumGray};
+    background-color: ${(p) => p.styles.THEME.mediumGray};
+  }
+  .bgContent {
+    background-color: white;
+  }
+  .bgSuccess {
+    background-color: ${(p) => p.styles.THEME.success};
   }
 `;
 

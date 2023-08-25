@@ -7,11 +7,11 @@ const Header = () => {
   const StylesState = useContext(StylesContext);
   console.log({ StylesState });
   return (
-    <StyledHeader $colors={StylesState.data.COLORS} className="row">
+    <StyledHeader $theme={StylesState.data.THEME} className="row">
       <div className="content">MainTitle</div>
       <div className="row">
         Income{" "}
-        <Field background={StylesState.data.COLORS.primaryDark} />
+        <Field background={StylesState.data.THEME.primaryDark} />
       </div>
       <div className="p2">Profile</div>
     </StyledHeader>
@@ -22,5 +22,5 @@ export default Header;
 
 const StyledHeader = styled.div`
   width: 100%;
-  background-color: ${(p) => p.$colors.primary};
+  background-color: ${(p) => p.$theme.primary};
 `;

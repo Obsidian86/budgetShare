@@ -4,12 +4,16 @@ import "normalize.css";
 import { COLORS, FONT_STACK } from "./constants";
 
 const initialState = {
-  COLORS: {
+  COLORS,
+  THEME: {
+    content: COLORS.white,
     background: COLORS.teal,
     primary: COLORS.teal,
     primaryDark: COLORS.tealDark,
     primaryLight: COLORS.tealLight,
     mediumGray: COLORS.medGray,
+    success: COLORS.green,
+    error: COLORS.red,
   },
   FONT: {
     default: FONT_STACK.default,

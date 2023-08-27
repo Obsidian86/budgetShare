@@ -6,6 +6,7 @@ const Badge = ({
   color = "#fff",
   borderRadius = "20px",
   padding = ".67rem 1rem",
+  className=''
 }) => {
   return (
     <StyledBadge
@@ -13,6 +14,7 @@ const Badge = ({
       $color={color}
       $borderRadius={borderRadius}
       $padding={padding}
+      className={className}
     >
       {text}
     </StyledBadge>

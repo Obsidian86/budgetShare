@@ -9,7 +9,7 @@ export default Button;
 const StyledButton = styled.button`
   cursor: pointer;
   color: #fff;
-  padding: .5rem;
+  padding: .75rem 2rem;
   border: none;
   border-radius: 5px;
   font-weight: 500;

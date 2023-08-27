@@ -18,6 +18,9 @@ const getLayoutClasses = () => {
         .ml${i} { margin-left: ${i / 2}rem; }
         .pb${i} { padding-bottom: ${i / 2}rem; }
         .mb${i} { margin-bottom: ${i / 2}rem; }
+        .br${i} { border-radius: ${i}px; }
+        .brt${i} { border-top-left-radius: ${i}px; border-top-right-radius: ${i}px; }
+        .brb${i} { border-bottom-left-radius: ${i}px; border-bottom-right-radius: ${i}px; }
       `;
   }
   return classesString;
@@ -65,6 +68,10 @@ const StyledApplication = styled.div`
   }
 
   ${getLayoutClasses()}
+
+  .hideOver {
+    overflow: hidden;
+  }
 
   @media screen and (max-width: ${(p) => p.styles.LAYOUT.break.medium}) {
     .breakMedium {

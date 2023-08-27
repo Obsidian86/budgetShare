@@ -27,8 +27,14 @@ const initialState = {
 
 export const StylesContext = createContext(initialState);
 
-const StyleProvider = ({ children }) => {
-  const [styleState, setStyleState] = useState(initialState);
+const StyleProvider = ({ children, customColors = {} }) => {
+  const [styleState, setStyleState] = useState({
+    ...initialState,
+    COLORS: {
+      ...initialState.COLORS,
+      custom: { ...customColors },
+    },
+  });
 
   const stateValue = useMemo(() => {
     return { data: styleState, setStyleState };

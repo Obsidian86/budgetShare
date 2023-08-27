@@ -4,6 +4,8 @@ import Badge from "../../framework/components/Badge";
 import { display } from "../../framework/utils/money";
 import { useContext } from "react";
 import { StylesContext } from "../../framework/providers/StylesProvider";
+import { styled } from "styled-components";
+import klass from "../../framework/utils/klass";
 
 const Console = ({ total, totalUsed, budgets }) => {
   const stylesState = useContext(StylesContext);
@@ -11,16 +13,19 @@ const Console = ({ total, totalUsed, budgets }) => {
   const colors = stylesState.data.COLORS;
 
   let totalItems = 0;
-  const itemsList = Object.keys(budgets).map((category, index) => {
+  const groupList = Object.keys(budgets) || [];
+  const itemsList = groupList.map((category, index) => {
     const budgetGroup = budgets[category];
     totalItems += budgetGroup.items.length;
     return (
       <div
         key={budgetGroup.name + "-" + category}
-        className="p2"
-        style={{
-          background: index % 2 === 0 ? colors.white : colors.lightGray,
-        }}
+        className={klass(
+          {
+            "even-row": index % 2 === 0
+          },
+          "p2 content-row"
+        )}
       >
         <span className="row between p1">
           <span className="b">{budgetGroup.name}</span>
@@ -51,7 +56,7 @@ const Console = ({ total, totalUsed, budgets }) => {
   });
 
   return (
-    <div>
+    <StyledConsole $colors={colors} className='br10 hideOver'>
       <div className="row between mxa bgContent">
         <Badge
           text={"$"}
@@ -75,7 +80,7 @@ const Console = ({ total, totalUsed, budgets }) => {
       <Card>
         <div className="p2" style={{ background: colors.darkGray }}>
           <span className="row between p1">
-            <span className="b">Total</span>
+            <span className="b tWhite">Total</span>
             <span />
           </span>
           <ProgressBar
@@ -86,8 +91,18 @@ const Console = ({ total, totalUsed, budgets }) => {
         </div>
         {itemsList}
       </Card>
-    </div>
+    </StyledConsole>
   );
 };
 
 export default Console;
+
+const StyledConsole = styled.div`
+  color: ${(p) => p.$colors.custom.darkTextGray};
+  .content-row {
+    background-color: ${(p) => p.$colors.lightGray};
+    &.even-row {
+      background-color: ${(p) => p.$colors.white};
+    }
+  }
+`;

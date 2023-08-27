@@ -48,7 +48,7 @@ export default () => {
         Sed ut perspiciatis unde omnis iste natus error sit voluptatem
         accusantium doloremque laudantium
       </p>
-      <Card className="w65 row vcenter between breakMedium">
+      <Card className="w65 row vcenter between breakMedium br8 hideOver">
         <p className="w70 tPrimary p2">
           Sed ut perspiciatis unde omnis iste natus error sit voluptatem
           accusantium doloremque laudantium
@@ -58,8 +58,8 @@ export default () => {
           <Button label="Save" />
         </span>
       </Card>
-      <div className="w30 mt5 breakMedium">
-        <Card>
+      <div className="w30 mt3 breakMedium">
+        <Card className='br8 hideOver'>
           <div className="bgSuccess row between p2 b">
             <span>+</span>
             <span>Add New Item</span>
@@ -103,7 +103,7 @@ export default () => {
           />
         </Card>
       </div>
-      <div className="w65 mt5 breakMedium">
+      <div className="w65 mt3 breakMedium">
         <Console total={total} totalUsed={totalUsed} budgets={budgets} />
       </div>
     </div>

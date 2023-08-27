@@ -4,12 +4,10 @@ const Card = ({
   children,
   className,
   background = "#fff",
-  borderRadius = "6px",
 }) => {
   return (
     <StyledCard
       className={className}
-      $borderRadius={borderRadius}
       $background={background}
     >
       {children}
@@ -20,6 +18,5 @@ const Card = ({
 export default Card;
 
 const StyledCard = styled.div`
-  border-radius: ${(p) => p.$borderRadius};
   background-color: ${(p) => p.$background};
 `;

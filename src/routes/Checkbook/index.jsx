@@ -13,7 +13,7 @@ const Checkbook = () => {
   return (
     <div>
       {transactions.map((trans) => (
-        <div>{trans.name}</div>
+        <div key={trans.id}>{trans.name}</div>
       ))}
     </div>
   );

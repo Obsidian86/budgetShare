@@ -1,11 +1,12 @@
 import React from "react";
+import { HashRouter } from "react-router-dom";
 import StylesProvoder from "./framework/providers/StylesProvider";
-import BudgetProvider from "./providers/BudgetProvider";
+import ModalProvider from "./framework/providers/ModalProvider";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import ModalProvider from "./framework/providers/ModalProvider";
-import { HashRouter, Link } from "react-router-dom";
 import RouterComponet, { routeList } from "./routes";
+import RegisterProviders from "./providers/RegisterProviders";
+import Splash from "./components/Splash";
 
 const customColors = {
   darkTextGray: "#585353",
@@ -13,20 +14,24 @@ const customColors = {
 
 export default function App() {
   return (
-    
     <StylesProvoder customColors={customColors}>
       <ModalProvider>
         <HashRouter>
           <div className="App bgMedium">
-            <Header />
-            {
-              routeList.map(routeItem => <Link to={routeItem.path} key={routeItem.name}>{routeItem.name}</Link>)
-            }
-            <BudgetProvider>
-              <div className="content">
-                <RouterComponet />
-              </div>
-            </BudgetProvider>
+            <Splash />
+            <div style={{ position: "relative", zIndex: 2 }}>
+              <Header
+                links={routeList.map((routeItem) => ({
+                  name: routeItem.name,
+                  to: routeItem.path,
+                }))}
+              />
+              <RegisterProviders>
+                <div className="content">
+                  <RouterComponet />
+                </div>
+              </RegisterProviders>
+            </div>
             <Footer />
           </div>
         </HashRouter>

@@ -1,3 +1,17 @@
+const transactions = [1, 2, 3, 4, 5, 6, 7].map((trans) => ({
+  id: trans,
+  name: `trans ${trans}`,
+  description: "this is a test descr",
+}));
+
+const accounts = [1, 2, 3, 4, 5, 6, 7].map((trans) => ({
+  id: trans,
+  name: `acc ${trans}`,
+  value: trans * 100,
+  type: trans % 2 === 0 ? 'Checking' : 'Savings',
+  description: "this is a test descr for account",
+}));
+
 const data = {
   budgetItems: [
     { id: 1, name: "rent", amount: 2100.23, category: "Housing" },
@@ -8,6 +22,8 @@ const data = {
     { id: 6, name: "music", amount: 23.13, category: "Entertainment" },
     { id: 7, name: "music", amount: 23.13, category: "Other" },
   ],
+  transactionItems: transactions,
+  accountItems: accounts
 };
 
 const test = () => {

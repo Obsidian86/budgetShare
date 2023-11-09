@@ -8,8 +8,8 @@ const Checkbook = lazy(() => import('./Checkbook'))
 
 export const routeList = [
     { name: 'Dashboard', path: '/', RouteComponent: Dashboard },
-    { name: 'bdg', path: '/budget', RouteComponent: Budget },
-    { name: 'cbo', path: '/checkbook', RouteComponent: Checkbook },
+    { name: 'Budgets', path: '/budget', RouteComponent: Budget },
+    { name: 'Checkbook', path: '/checkbook', RouteComponent: Checkbook },
 ]
 
 const RouterComponet = () => {

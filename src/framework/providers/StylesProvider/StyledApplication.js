@@ -30,9 +30,10 @@ const StyledApplication = styled.div`
   font-size: 16px;
   font-family: ${(p) => p.styles.FONT.default};
   background-color: ${(p) => p.styles.THEME.background};
-  min-height: 100vh;
+  min-height: 100svh;
   width: 100%;
   margin: 0;
+  position: relative;
 
   // -------------- //
   // -- Utitlity -- //
@@ -89,6 +90,10 @@ const StyledApplication = styled.div`
   .tr {
     text-align: right;
   }
+  .em {
+    font-weight: normal;
+    font-style: italic;
+  }
   .tError {
     color: ${(p) => p.styles.THEME.error};
   }
@@ -98,6 +103,7 @@ const StyledApplication = styled.div`
   .tWhite {
     color: #fff;
   }
+
   // colors ------------ //
   .bgMedium {
     background-color: ${(p) => p.styles.THEME.mediumGray};

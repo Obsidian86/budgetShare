@@ -2,7 +2,9 @@ import { createContext, useEffect, useMemo, useState } from "react";
 import makeCall from "../framework/DAL/makeCall";
 
 const defaultBudgetState = { data: [] };
+
 export const BudgetContext = createContext(defaultBudgetState);
+
 export default ({ children }) => {
   const [budgetState, setBudgetState] = useState(defaultBudgetState);
 

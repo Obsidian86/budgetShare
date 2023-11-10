@@ -2,6 +2,8 @@ const transactions = [1, 2, 3, 4, 5, 6, 7].map((trans) => ({
   id: trans,
   name: `trans ${trans}`,
   description: "this is a test descr",
+  amount: `${trans * Math.random()}`,
+  date: '11/14/2023'
 }));
 
 const accounts = [1, 2, 3, 4, 5, 6, 7].map((trans) => ({
@@ -28,7 +30,7 @@ const data = {
 
 const test = () => {
   return new Promise((resolve) => {
-    setTimeout(() => resolve(), 1000);
+    setTimeout(() => resolve(), 10);
   });
 };
 

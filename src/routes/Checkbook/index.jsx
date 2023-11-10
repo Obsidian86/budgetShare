@@ -3,11 +3,16 @@ import { TransactionsContext } from "../../providers/TransactionsProvider";
 import { AccountsContext } from "../../providers/AccountsProvider";
 import AccountsList from "./AccountsList";
 import Card from "../../framework/components/Card";
+import TransactionList from "./TransactionsList";
+import TitleCap from "../../components/TitleCap";
+import { StylesContext } from "../../framework/providers/StylesProvider";
+import AccountDataCard from "./AccountDataCard";
 
 const Checkbook = () => {
   const [selectedAccount, setSelectedAccount] = useState(null);
   const transactionContext = useContext(TransactionsContext);
   const accountsContext = useContext(AccountsContext);
+  const { THEME } = useContext(StylesContext)?.data
 
   const transactions = transactionContext.getters.data(selectedAccount);
   const accounts = accountsContext.getters.data;
@@ -42,27 +47,10 @@ const Checkbook = () => {
           selectedAccount={selectedAccount}
         />
       </div>
-      <div className="w65">
-        <Card radius={'8px'} shadow background={'#F0F0F0'}>
-          <div className='row between content pt2 pb1'>
-            <span>Account One</span>
-            <span>$1,000.000</span>
-          </div>
-          <hr className='content' />
-          <span className='tc'>Credit - 3% APY.</span>
-          <div className='row between content pt2'>
-            <span>1 Budget Item</span>
-            <span>112 transactions</span>
-          </div>
-          <div className='row between content pt2 pb2'>
-            <span>2 Aut transactions</span>
-            <span>12 widthdraws / 100 deposits</span>
-          </div>
-        </Card>
-        {transactions.map((trans) => (
-          <div key={trans.id}>{trans.name}</div>
-        ))}
-      </div>
+      <section className="w65">
+        <AccountDataCard />
+        <TransactionList transactions={transactions} />
+      </section>
     </div>
   );
 };

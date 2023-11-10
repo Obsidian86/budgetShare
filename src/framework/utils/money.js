@@ -1,4 +1,9 @@
 export const display = (value) => {
-  const v = Math.round(value * 100) / 100;
-  return `$${v.toLocaleString("en-US")}`;
+  const parsedValue = parseFloat(value?.replace?.(/,/g, '') ?? value)
+  return `${parsedValue.toLocaleString("en-US", {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  })}`;
 };

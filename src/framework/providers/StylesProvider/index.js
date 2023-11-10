@@ -12,6 +12,8 @@ const initialState = {
     primaryDark: COLORS.tealDark,
     primaryLight: COLORS.tealLight,
     mediumGray: COLORS.medGray,
+    bgLight: COLORS.lightGray,
+    bgMed: COLORS.medGray,
     success: COLORS.green,
     error: COLORS.red,
   },
@@ -37,7 +39,10 @@ const StyleProvider = ({ children, customColors = {} }) => {
   });
 
   const stateValue = useMemo(() => {
-    return { data: styleState, setStyleState };
+    return { 
+      data: styleState,
+      setStyleState,
+    };
   }, [styleState]);
 
   return (

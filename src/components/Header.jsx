@@ -24,10 +24,16 @@ const Header = ({ links }) => {
 
   return (
     <>
-      <StyledHeader $theme={StylesState.data.THEME} className="row">
-        <div className="content">MainTitle</div>
-        {isScrolled && <div>{navLinks}</div>}
-        <div className="p2">Profile</div>
+      <StyledHeader
+        $theme={StylesState.data.THEME}
+        className="row between"
+        $isScrolled={isScrolled}
+      >
+        <div>MainTitle</div>
+        <div className="row vcenter">
+          <div className="scrolled-nav">{navLinks}</div>
+          <div className="p2">Profile</div>
+        </div>
       </StyledHeader>
       <StyledSpacer />
       <StyledNavLinks className="content row end pt2">
@@ -51,6 +57,23 @@ const StyledHeader = styled.div`
   width: 100%;
   z-index: 10;
   background-color: ${(p) => p.$theme.primary};
+  .scrolled-nav {
+    max-height: 0;
+    max-width: 0;
+    overflow: hidden;
+    transition: all 0.3s;
+    ${(p) =>
+      p.$isScrolled &&
+      `
+      max-height: 100vh;
+      max-width: 100vh;
+    `}
+    a {
+      margin-left: 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  }
 `;
 
 const StyledNavLinks = styled.div`

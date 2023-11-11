@@ -1,16 +1,18 @@
-const transactions = [1, 2, 3, 4, 5, 6, 7].map((trans) => ({
-  id: trans,
-  name: `trans ${trans}`,
-  description: "this is a test descr",
-  amount: `${trans * Math.random()}`,
-  date: '11/14/2023'
-}));
+const transactions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map(
+  (trans) => ({
+    id: trans,
+    name: `trans ${trans}`,
+    description: "this is a test descr",
+    amount: `${trans * Math.random()}`,
+    date: "11/14/2023",
+  })
+);
 
 const accounts = [1, 2, 3, 4, 5, 6, 7].map((trans) => ({
   id: trans,
   name: `acc ${trans}`,
   value: trans * 100,
-  type: trans % 2 === 0 ? 'Checking' : 'Savings',
+  type: trans % 2 === 0 ? "Checking" : "Savings",
   description: "this is a test descr for account",
 }));
 
@@ -25,7 +27,7 @@ const data = {
     { id: 7, name: "music", amount: 23.13, category: "Other" },
   ],
   transactionItems: transactions,
-  accountItems: accounts
+  accountItems: accounts,
 };
 
 const test = () => {

@@ -1,11 +1,15 @@
-import { createContext, useMemo, useState } from "react";
+import { createContext, useEffect, useMemo, useRef, useState } from "react";
 import StyledApplication from "./StyledApplication";
 import "normalize.css";
 import { BREAKPOINTS, COLORS, FONT_STACK } from "./constants";
 
-const initialState = {
-  COLORS,
-  THEME: {
+const themeTypes = {
+  LIGHT: "light",
+  DARK: "dark",
+};
+
+const themes = {
+  [themeTypes.LIGHT]: {
     content: COLORS.white,
     background: COLORS.teal,
     primary: COLORS.teal,
@@ -17,6 +21,23 @@ const initialState = {
     success: COLORS.green,
     error: COLORS.red,
   },
+  [themeTypes.DARK]: {
+    content: COLORS.white,
+    background: "red",
+    primary: COLORS.teal,
+    primaryDark: COLORS.tealDark,
+    primaryLight: COLORS.tealLight,
+    mediumGray: "#333",
+    bgLight: "black",
+    bgMed: "#333",
+    success: COLORS.green,
+    error: COLORS.red,
+  },
+};
+
+const initialState = {
+  COLORS,
+  THEME: themes[themeTypes.LIGHT],
   FONT: {
     default: FONT_STACK.default,
   },
@@ -30,6 +51,7 @@ const initialState = {
 export const StylesContext = createContext(initialState);
 
 const StyleProvider = ({ children, customColors = {} }) => {
+  const currentThemeRef = useRef(themeTypes.LIGHT);
   const [styleState, setStyleState] = useState({
     ...initialState,
     COLORS: {
@@ -38,10 +60,26 @@ const StyleProvider = ({ children, customColors = {} }) => {
     },
   });
 
+  const toggleTheme = () => {
+    currentThemeRef.current =
+      currentThemeRef.current === themeTypes.LIGHT
+        ? themeTypes.DARK
+        : themeTypes.LIGHT;
+
+    setStyleState((currentStyleState) => ({
+      ...currentStyleState,
+      THEME: { ...themes[currentThemeRef.current] },
+    }));
+  };
+
   const stateValue = useMemo(() => {
-    return { 
-      data: styleState,
+    return {
+      data: {
+        ...styleState,
+        currentTheme: currentThemeRef.current,
+      },
       setStyleState,
+      toggleTheme,
     };
   }, [styleState]);
 

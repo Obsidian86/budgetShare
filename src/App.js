@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import RouterComponet, { routeList } from "./routes";
 import RegisterProviders from "./providers/RegisterProviders";
 import Splash from "./components/Splash";
+import ContextMenu from "./components/ContextMenu";
 
 const customColors = {
   darkTextGray: "#585353",
@@ -30,6 +31,7 @@ export default function App() {
                 <div className="content">
                   <RouterComponet />
                 </div>
+                <ContextMenu />
               </RegisterProviders>
             </div>
             <Footer />

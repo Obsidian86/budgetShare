@@ -4,7 +4,6 @@ import { StylesContext } from "../framework/providers/StylesProvider";
 
 const Footer = () => {
   const stylesContext = useContext(StylesContext);
-  console.log({ stylesContext  })
   return (
     <StyledFooter $theme={stylesContext.data.THEME} >
       <div className="content tc pt4 pb4">

@@ -2,17 +2,24 @@ import { useContext, useEffect, useState } from "react";
 import { TransactionsContext } from "../../providers/TransactionsProvider";
 import { AccountsContext } from "../../providers/AccountsProvider";
 import AccountsList from "./AccountsList";
-import Card from "../../framework/components/Card";
 import TransactionList from "./TransactionsList";
-import TitleCap from "../../components/TitleCap";
-import { StylesContext } from "../../framework/providers/StylesProvider";
 import AccountDataCard from "./AccountDataCard";
+import { SidePanelContext } from "../../framework/providers/SidePanelProvider";
+
+const Form = () => {
+  return <form>
+    test form
+    <input type='text' />
+    <input type='text' />
+    <input type='text' />
+  </form>
+}
 
 const Checkbook = () => {
   const [selectedAccount, setSelectedAccount] = useState(null);
   const transactionContext = useContext(TransactionsContext);
   const accountsContext = useContext(AccountsContext);
-  const { THEME } = useContext(StylesContext)?.data
+  const { setSidePanelState } = useContext(SidePanelContext);
 
   const transactions = transactionContext.getters.data(selectedAccount);
   const accounts = accountsContext.getters.data;
@@ -32,14 +39,17 @@ const Checkbook = () => {
     }
   }, [accounts]);
 
-  console.log({ transactionContext, accountsContext });
-
   if (!accountsContext.getters.loaded) {
     return "Loading Accounts";
   }
 
   return (
     <div className="row around mt5 mb5">
+      <div>
+        <button onClick={() => {
+          setSidePanelState({ title: 'Add Transaction', component: Form })
+        }}>Add Transaction</button>
+      </div>
       <div className="w30">
         <AccountsList
           accounts={accounts}

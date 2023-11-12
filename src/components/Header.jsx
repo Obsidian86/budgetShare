@@ -29,7 +29,7 @@ const Header = ({ links }) => {
         className="row between"
         $isScrolled={isScrolled}
       >
-        <div>MainTitle</div>
+        <div className="main-logo">MainTitle</div>
         <div className="row vcenter">
           <div className="scrolled-nav">{navLinks}</div>
           <div className="p2">Profile</div>
@@ -57,6 +57,12 @@ const StyledHeader = styled.div`
   width: 100%;
   z-index: 10;
   background-color: ${(p) => p.$theme.primary};
+  .main-logo {
+    font-weight: bold;
+    padding: 1rem;
+    color: #fff;
+    font-size: 1.1rem;
+  }
   .scrolled-nav {
     max-height: 0;
     max-width: 0;

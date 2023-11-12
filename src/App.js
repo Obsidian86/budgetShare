@@ -31,7 +31,36 @@ export default function App() {
                 <div className="content">
                   <RouterComponet />
                 </div>
-                <ContextMenu />
+                <div
+                  style={{
+                    position: "fixed",
+                    right: "0",
+                    top: "0",
+                    backgroundColor: "rgba(0,0,0,.3)",
+                    height: "100svh",
+                    width: "100%",
+                    zIndex: "11",
+                    display: "flex",
+                    justifyContent: "flex-end",
+                    alignItems: "center",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: "500px",
+                      backgroundColor: "#fff",
+                      height: "calc(100% - 20px)",
+                      maxHeight: "100svh",
+                      marginRight: "10px",
+                      marginTop: "10px",
+                      borderRadius: "10px",
+                      marginBottom: "10px",
+                      boxShadow: "0 0 4px rgba(0,0,0,.6)",
+                    }}
+                  >
+                    asdasd adasda
+                  </div>
+                </div>
               </RegisterProviders>
             </div>
             <Footer />

@@ -44,8 +44,8 @@ const Checkbook = () => {
   }
 
   return (
-    <div className="row around mt5 mb5">
-      <div>
+    <div className="row around mt5 mb5 wrap">
+      <div className="w100">
         <button onClick={() => {
           setSidePanelState({ title: 'Add Transaction', component: Form })
         }}>Add Transaction</button>

@@ -2,23 +2,36 @@ import { useContext } from "react";
 import styled from "styled-components";
 import useMounted from "../../hooks/useMounted";
 import { SidePanelContext } from "./index";
+import { StylesContext } from "../StylesProvider";
+import { SP_CONTAINER_WINDOW_CLASS } from './constants'
+
 
 const SidePanel = () => {
-  const { state: { title, component }, setSidePanelState } = useContext(SidePanelContext);
+  const {
+    state: { title, component },
+    setSidePanelState,
+  } = useContext(SidePanelContext);
+  const stylesContext = useContext(StylesContext);
   const isMounted = useMounted();
- 
+
+  const { THEME } = stylesContext.data;
+
   return (
-    <StyledSidePanel $isMounted={isMounted}>
+    <StyledSidePanel
+      className={SP_CONTAINER_WINDOW_CLASS}
+      $isMounted={isMounted}
+      $theme={THEME}
+      onClick={(e) => {
+        e.target.classList.contains?.(SP_CONTAINER_WINDOW_CLASS) &&
+          setSidePanelState(null);
+      }}
+    >
       <div className="side-panel-content">
         <div className="row between p2">
           <span className="b">{title}</span>
-          <button onClick={() => setSidePanelState(null)}>
-            X
-          </button>
+          <button onClick={() => setSidePanelState(null)}>X</button>
         </div>
-        <div className='p2'>
-            { component() }
-        </div>
+        <div className="p2">{component()}</div>
       </div>
     </StyledSidePanel>
   );
@@ -42,8 +55,8 @@ const StyledSidePanel = styled.div`
     p.$isMounted ? "rgba(0,0,0,.6)" : "rgba(0,0,0,0)"};
   .side-panel-content {
     transition: all 0.2s 0.2s;
-    width: ${(p) => (p.$isMounted ? "500px" : "0")};
-    background-color: #fff;
+    width: ${(p) => (p.$isMounted ? "650px" : "0")};
+    background-color: ${(p) => p.$theme.bgLight};
     height: ${(p) => (p.$isMounted ? "calc(100% - 20px)" : "0")};
     max-height: 100svh;
     margin: 10px;

@@ -3,10 +3,10 @@ import styled from "styled-components";
 import useMounted from "../../hooks/useMounted";
 import { SidePanelContext } from "./index";
 import { StylesContext } from "../StylesProvider";
-import { SP_CONTAINER_WINDOW_CLASS } from './constants'
+import { SP_CONTAINER_WINDOW_CLASS } from "./constants";
+import Icon from "../../components/ui/Icon";
 
-
-const SidePanel = () => {
+const SidePanel = (props = {}) => {
   const {
     state: { title, component },
     setSidePanelState,
@@ -27,11 +27,29 @@ const SidePanel = () => {
       }}
     >
       <div className="side-panel-content">
-        <div className="row between p2">
+        <div
+          className="row between p2"
+          style={{
+            borderBottom: "1px solid #d9d9d9",
+            paddingBottom: ".5rem",
+            alignItems: "center",
+          }}
+        >
           <span className="b">{title}</span>
-          <button onClick={() => setSidePanelState(null)}>X</button>
+          <button
+            onClick={() => setSidePanelState(null)}
+            style={{
+              color: "red",
+              background: "none",
+              border: "none",
+              fontSize: "1.4rem",
+              cursor: "pointer",
+            }}
+          >
+            <Icon icon="close" />
+          </button>
         </div>
-        <div className="p2">{component()}</div>
+        <div className="p2">{component({ ...props })}</div>
       </div>
     </StyledSidePanel>
   );

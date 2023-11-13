@@ -2,6 +2,7 @@ import styled from "styled-components";
 import kl from "../../framework/utils/klass";
 import { display } from "../../framework/utils/money";
 import TitleCap from "../../components/TitleCap";
+import Card from "../../framework/components/containers/Card";
 
 const AccountsList = ({ accounts, setSelectedAccount, selectedAccount }) => {
   let total = 0;
@@ -26,19 +27,19 @@ const AccountsList = ({ accounts, setSelectedAccount, selectedAccount }) => {
     );
   });
 
-  return (
-    <StyledAccountsList>
+  return ( 
+    <StyledAccountsList shadow radius='8px 8px 0 0'>
       <TitleCap title="Accounts" color="#0B5652" bg="#75C1BD">
         {display(total)}
       </TitleCap>
       {accountList}
-    </StyledAccountsList>
+    </StyledAccountsList> 
   );
 };
 
 export default AccountsList;
 
-const StyledAccountsList = styled.section`
+const StyledAccountsList = styled(Card)`
   .account-list-item {
     font-weight: bold;
     background-color: #fff;
@@ -62,9 +63,6 @@ const StyledAccountsList = styled.section`
       box-shadow: 0 0 23px rgba(0, 0, 0, 0.3);
       background-color: #fff;
       z-index: 2;
-      padding: 1rem 0.5rem;
-      width: calc(96% + 15px);
-      margin-left: -5px;
     }
   }
 `;

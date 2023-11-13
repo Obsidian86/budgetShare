@@ -28,7 +28,7 @@ const sepStyles = css`
     content: "";
     height: 0;
     width: 96%;
-    border-bottom: 2px solid #888;
+    border-bottom: 1px solid #d9d9d9;
   }
 `;
 

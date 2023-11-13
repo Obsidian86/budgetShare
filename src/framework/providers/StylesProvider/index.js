@@ -10,11 +10,13 @@ const themeTypes = {
 
 const themes = {
   [themeTypes.LIGHT]: {
-    content: COLORS.white,
     background: COLORS.teal,
     primary: COLORS.teal,
     primaryDark: COLORS.tealDark,
     primaryLight: COLORS.tealLight,
+    textLight: COLORS.medGray,
+    textMed: COLORS.medDarkGray,
+    text: COLORS.darkGray2,
     mediumGray: COLORS.medGray,
     bgLight: COLORS.lightGray,
     bgMed: COLORS.medGray,
@@ -22,7 +24,6 @@ const themes = {
     error: COLORS.red,
   },
   [themeTypes.DARK]: {
-    content: COLORS.white,
     background: "red",
     primary: COLORS.teal,
     primaryDark: COLORS.tealDark,
@@ -84,7 +85,7 @@ const StyleProvider = ({ children, customColors = {} }) => {
   }, [styleState]);
 
   return (
-    <StyledApplication styles={styleState}>
+    <StyledApplication $styles={styleState}>
       <StylesContext.Provider value={stateValue}>
         {children}
       </StylesContext.Provider>

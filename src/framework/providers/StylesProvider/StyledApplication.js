@@ -28,12 +28,13 @@ const getLayoutClasses = () => {
 
 const StyledApplication = styled.div`
   font-size: 16px;
-  font-family: ${(p) => p.styles.FONT.default};
-  background-color: ${(p) => p.styles.THEME.background};
+  font-family: ${(p) => p.$styles.FONT.default};
+  background-color: ${(p) => p.$styles.THEME.background};
   min-height: 100svh;
   width: 100%;
   margin: 0;
   position: relative;
+  color: ${(p) => p.$styles.THEME.text};
 
   // -------------- //
   // -- Utitlity -- //
@@ -74,7 +75,7 @@ const StyledApplication = styled.div`
     overflow: hidden;
   }
 
-  @media screen and (max-width: ${(p) => p.styles.LAYOUT.break.medium}) {
+  @media screen and (max-width: ${(p) => p.$styles.LAYOUT.break.medium}) {
     .breakMedium {
       width: 98% !important;
     }
@@ -94,11 +95,17 @@ const StyledApplication = styled.div`
     font-weight: normal;
     font-style: italic;
   }
+  .tSuccess {
+    color: ${(p) => p.$styles.THEME.success};
+  }
   .tError {
-    color: ${(p) => p.styles.THEME.error};
+    color: ${(p) => p.$styles.THEME.error};
   }
   .tPrimary {
-    color: ${(p) => p.styles.THEME.primary};
+    color: ${(p) => p.$styles.THEME.primary};
+  }
+  .tLight {
+    color: ${(p) => p.$styles.THEME.textMed};
   }
   .tWhite {
     color: #fff;
@@ -106,13 +113,13 @@ const StyledApplication = styled.div`
 
   // colors ------------ //
   .bgMedium {
-    background-color: ${(p) => p.styles.THEME.mediumGray};
+    background-color: ${(p) => p.$styles.THEME.mediumGray};
   }
   .bgContent {
     background-color: white;
   }
   .bgSuccess {
-    background-color: ${(p) => p.styles.THEME.success};
+    background-color: ${(p) => p.$styles.THEME.success};
   }
 `;
 

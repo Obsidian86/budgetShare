@@ -33,9 +33,9 @@ const Header = ({ links }) => {
         <div className="main-logo">MainTitle</div>
         <div className="row vcenter">
           <div className="scrolled-nav">{navLinks}</div>
-          <div className="p2">
+          <div className="profile-link p2">
             <Icon icon="user" />
-            Profile
+            <span className='pl1'>Profile</span>
           </div>
         </div>
       </StyledHeader>
@@ -67,6 +67,12 @@ const StyledHeader = styled.div`
     color: #fff;
     font-size: 1.1rem;
   }
+  .profile-link {
+    background-color: ${(p) => p.$theme.primaryDark};
+    color: ${(p) => p.$theme.primaryLight};
+    margin-left: 1rem;
+    padding: auto 1.5rem;
+  }
   .scrolled-nav {
     max-height: 0;
     max-width: 0;
@@ -77,8 +83,9 @@ const StyledHeader = styled.div`
       `
       max-height: 100vh;
       max-width: 100vh;
-    `}
-    a {
+      `}
+      a {
+      color: #fff;
       margin-left: 15px;
       text-decoration: none;
       font-weight: bold;

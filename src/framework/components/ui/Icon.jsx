@@ -1,9 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faPlusCircle } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faPlusCircle, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const iconMap = {
   user: faUser,
-  plus: faPlusCircle
+  plus: faPlusCircle,
+  close: faTimes,
 };
 
 const Icon = ({ icon }) => <FontAwesomeIcon icon={iconMap[icon]} />;

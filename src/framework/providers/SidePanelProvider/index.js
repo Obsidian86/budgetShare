@@ -26,7 +26,7 @@ const SidePanelProvider = ({ children }) => {
 
   return (
     <SidePanelContext.Provider value={value}>
-      {sidePanelState.isOpen && <SidePanel />}
+      {sidePanelState.isOpen && <SidePanel {...sidePanelState.props} />}
       {children}
     </SidePanelContext.Provider>
   );

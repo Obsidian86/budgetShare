@@ -5,15 +5,23 @@ import AccountsList from "./AccountsList";
 import TransactionList from "./TransactionsList";
 import AccountDataCard from "./AccountDataCard";
 import { SidePanelContext } from "../../framework/providers/SidePanelProvider";
+import Controls from "../../components/Controls";
 
-const Form = () => {
-  return <form>
-    test form
-    <input type='text' />
-    <input type='text' />
-    <input type='text' />
-  </form>
-}
+const Form = ({ test }) => {
+  return (
+    <form>
+      test form {test}
+      <input type="text" />
+      <input type="text" />
+      <input type="text" />
+    </form>
+  );
+};
+
+const controlPanelLink = {
+  "Add Transaction": () => <Form test={"asdads"} />,
+  "Add Account": () => <Form test={"1111"} />,
+};
 
 const Checkbook = () => {
   const [selectedAccount, setSelectedAccount] = useState(null);
@@ -46,9 +54,16 @@ const Checkbook = () => {
   return (
     <div className="row around mt5 mb5 wrap">
       <div className="w100">
-        <button onClick={() => {
-          setSidePanelState({ title: 'Add Transaction', component: Form })
-        }}>Add Transaction</button>
+        <Controls
+          controls={Object.keys(controlPanelLink).map((label) => ({
+            label,
+            action: () =>
+              setSidePanelState({
+                title: label,
+                component: controlPanelLink[label],
+              }),
+          }))}
+        />
       </div>
       <div className="w30">
         <AccountsList

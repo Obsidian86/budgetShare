@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 import { StylesContext } from "../framework/providers/StylesProvider";
 import { Link, useLocation } from "react-router-dom";
 import useScrollEffect from "../framework/hooks/useScrollEffect";
+import Icon from "../framework/components/Icon";
 
 const Header = ({ links }) => {
   const StylesState = useContext(StylesContext);
@@ -32,7 +33,10 @@ const Header = ({ links }) => {
         <div className="main-logo">MainTitle</div>
         <div className="row vcenter">
           <div className="scrolled-nav">{navLinks}</div>
-          <div className="p2">Profile</div>
+          <div className="p2">
+            <Icon icon="user" />
+            Profile
+          </div>
         </div>
       </StyledHeader>
       <StyledSpacer />

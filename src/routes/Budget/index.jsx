@@ -1,12 +1,12 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { BudgetContext } from "../../providers/BudgetProvider";
 import { StylesContext } from "../../framework/providers/StylesProvider";
-import Form from "../../framework/components/Form";
+import Form from "../../framework/components/form/Form";
 import { display } from "../../framework/utils/money";
 import Console from "./Console";
-import Card from "../../framework/components/Card";
-import Button from "../../framework/components/Button";
-import Badge from "../../framework/components/Badge";
+import Card from "../../framework/components/containers/Card";
+import Button from "../../framework/components/form/Button";
+import Badge from "../../framework/components/ui/Badge";
 
 export default () => {
   const budgetContext = useContext(BudgetContext);

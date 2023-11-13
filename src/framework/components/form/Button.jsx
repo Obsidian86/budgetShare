@@ -1,8 +1,9 @@
 import { css, styled } from "styled-components";
 
-const Button = ({ label, onClick, type = "success", className = "" }) => {
+const Button = ({ label, onClick, type = "success", className = "", icon = null }) => {
   return (
     <StyledButton onClick={onClick} $type={type} className={className}>
+      { icon && <span className='pr1'>{icon}</span> }
       {label}
     </StyledButton>
   );
@@ -29,7 +30,7 @@ const dangerStyles = css`
 const StyledButton = styled.button`
   cursor: pointer;
   color: #fff;
-  padding: 0.75rem 2rem;
+  padding: 0.75rem 1rem;
   border: none;
   border-radius: 5px;
   font-weight: 500;

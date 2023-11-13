@@ -1,6 +1,6 @@
-import Card from "../../framework/components/Card";
-import ProgressBar from "../../framework/components/ProgressBar";
-import Badge from "../../framework/components/Badge";
+import Card from "../../framework/components/containers/Card";
+import ProgressBar from "../../framework/components/ui/ProgressBar";
+import Badge from "../../framework/components/ui/Badge";
 import { display } from "../../framework/utils/money";
 import { useContext } from "react";
 import { StylesContext } from "../../framework/providers/StylesProvider";

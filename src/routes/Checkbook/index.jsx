@@ -57,6 +57,7 @@ const Checkbook = () => {
         <Controls
           controls={Object.keys(controlPanelLink).map((label) => ({
             label,
+            icon: 'plus',
             action: () =>
               setSidePanelState({
                 title: label,

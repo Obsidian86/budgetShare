@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 import { StylesContext } from "../framework/providers/StylesProvider";
 import { Link, useLocation } from "react-router-dom";
 import useScrollEffect from "../framework/hooks/useScrollEffect";
-import Icon from "../framework/components/Icon";
+import Icon from "../framework/components/ui/Icon";
 
 const Header = ({ links }) => {
   const StylesState = useContext(StylesContext);

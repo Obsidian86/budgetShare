@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
-import useMounted from "../hooks/useMounted";
-import { displayPercent } from "../utils/numbers";
+import useMounted from "../../hooks/useMounted";
+import { displayPercent } from "../../utils/numbers";
 
 const ProgressBar = ({
   value = 0,

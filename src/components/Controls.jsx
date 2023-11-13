@@ -1,4 +1,5 @@
-import Button from "../framework/components/Button";
+import Button from "../framework/components/form/Button";
+import Icon from "../framework/components/ui/Icon";
 
 const Controls = ({ controls }) => {
   return (
@@ -7,6 +8,7 @@ const Controls = ({ controls }) => {
         <Button
           key={control.label}
           onClick={control.action}
+          icon={control.icon && <Icon icon={control.icon} />}
           label={control.label}
           className="mr2"
         />

@@ -1,13 +1,13 @@
 import { useContext } from "react";
 import { display } from "../../framework/utils/money";
-import Card from "../../framework/components/Card";
+import Card from "../../framework/components/containers/Card";
 import TitleCap from "../../components/TitleCap";
 import { StylesContext } from "../../framework/providers/StylesProvider";
 
 const TransactionList = ({ transactions }) => {
     const { THEME } = useContext(StylesContext)?.data
     return (
-      <>
+      <Card shadow radius='8px 8px 0 0'>
         <TitleCap title="Transactions" bg={THEME.bgLight} />
         {transactions.map((trans, index) => (
           <Card
@@ -22,7 +22,7 @@ const TransactionList = ({ transactions }) => {
             </span>
           </Card>
         ))}
-      </>
+      </Card>
     );
   };
 

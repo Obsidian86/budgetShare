@@ -1,6 +1,6 @@
 import React from "react";
 import TitleCap from "../../components/TitleCap";
-import Card from "../../framework/components/Card";
+import Card from "../../framework/components/containers/Card";
 import { StylesContext } from "../../framework/providers/StylesProvider";
 
 const AccountDataCard = () => {
